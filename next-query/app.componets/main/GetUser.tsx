@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import useGetUser from "../app.hook/useGetUser";
+import useGetUser from "../../app.hook/useGetUser";
 
 export const featchCartItem = () => {
   return {
@@ -18,8 +18,8 @@ const GetUser = () => {
   
   return (
     <div>
-      <div>getUser: {getUser.id}</div>
-      <div>getUser: {getUser.name}</div>
+      <div>id: {getUser.id}</div>
+      <div>name: {getUser.name}</div>
       
       <div>
         cartCount : {data.count}    

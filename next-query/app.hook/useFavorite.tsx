@@ -11,10 +11,8 @@ const useFavorite = () => {
 
   const { isLoading, error, data } = useQuery(queryKey, featchCartItem) 
 
-
-  if (isLoading) return "Loading...";
-  if (error) return "An error has occurred";
-
+  if (isLoading) return null;
+  if (error) return null;
 
   return data;
 };

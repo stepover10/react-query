@@ -4,7 +4,13 @@ import PostCreateUser from "./feature/PostCreateUser";
 import UserList from "./feature/UserList";
 import UpdateUser from "./feature/UpdateUser";
 
-export const queryClient = new QueryClient();
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export default function App() {
   return (

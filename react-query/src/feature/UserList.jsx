@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import DeleteUser from "./DeleteUser";
 
-export default function UserList() {
+const UserList = () => {
   /** 
    * @user === key
    * @main === namespace key
@@ -28,3 +28,5 @@ export default function UserList() {
     </div>
   );
 }
+
+export default UserList;

@@ -1,24 +1,23 @@
-import useGetUser from "../app.hook/useGetUser";
-import { QueryClient, useQueryClient } from "react-query";
+import { QueryClient, useQueryClient, useQuery } from "react-query";
 import { Hydrate, dehydrate } from "react-query/hydration";
+import axios from "axios";
+import UserList from "../app.componets/user/UserList";
+import UserAddBtn from "../app.componets/user/UserAddbton";
+import { queryClient } from './_app'
 
-const PageUser = (props:any) => {
-  const getUser = useGetUser();
-  
-  console.log(getUser, props);
-  
+const PageUser = ({dataset}) => {
   return (
-    <div>
-     PageUser
-     <button></button>
-    </div>
+    <>
+      <UserAddBtn />
+      <UserList dataset={dataset} />
+    </>
   );
 };
 
 PageUser.getInitialProps = async () => {
-
+  const res = await axios.get(`http://localhost:8000/api/users`);
   return {
-    name: 'page'
+    dataset: res.data.result
   };
 };
 

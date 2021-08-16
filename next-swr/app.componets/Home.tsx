@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+import DeleteUser from '../app.componets/DeleteUser'
 
 const Home = () => {
   const { data:res } = useSWR('/api/users')
@@ -11,7 +12,7 @@ const Home = () => {
         return (
           <div key={i} style={{margin: '5px 0'}}>
             {v.name} -- {v.email}
-            {/* <DeleteUser userId={v.id} /> */}
+            <DeleteUser userId={v.id} />
           </div>
         )
       })}

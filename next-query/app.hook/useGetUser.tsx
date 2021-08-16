@@ -1,4 +1,4 @@
-import { useQueryClient, useQuery } from "react-query";
+import { useQueryClient } from "react-query";
 
 const queryKey = 'intoAPP';
 

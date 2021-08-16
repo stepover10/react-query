@@ -3,16 +3,18 @@ import React, {useState} from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Hydrate, dehydrate } from "react-query/hydration";
 
+
+export const queryClient = new QueryClient();
+
 const AppContainer = ({ Component, pageProps }) => {
   const [queryClient] = useState(() => new QueryClient({
     defaultOptions: {
       queries: {
         refetchOnWindowFocus: false,
+        notifyOnChangeProps: 'tracked'
       },
     },
   }));
-
-console.log(pageProps);
 
   return (
     <QueryClientProvider 
@@ -26,22 +28,22 @@ console.log(pageProps);
 };
 
 AppContainer.getInitialProps = async ({ Component, ctx }) => {
-  const queryClient = new QueryClient();
   /**
    * get user info
    * **/
   await queryClient.prefetchQuery("intoAPP", () => {
     return {
-      id: "😆 stepover10",
-      name: "😀 front-end team",
+      id: 'stepover10',
+      name: 'chan'
     };
   });
 
+  /** 테스트 01 **/
   await queryClient.prefetchQuery("intoFavorite", () => {
     return {
       name: "🤑 into favorite",
     };
-  });
+  })
 
   return {
     pageProps: {

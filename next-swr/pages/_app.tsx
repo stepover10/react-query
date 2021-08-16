@@ -1,7 +1,10 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { useSWR, SWRConfig } from "swr";
+import { createCache , SWRConfig } from "swr";
 import axios from "axios";
+
+console.log(createCache );
+
 
 const globalFetcher = async (api) => {
   const res = await axios.get(`http://localhost:8000${api}`);
@@ -13,6 +16,7 @@ function AppContainer({ Component, pageProps }: AppProps) {
     <SWRConfig
       value={{
         fetcher: globalFetcher,
+        refreshInterval: false,
       }}
     >
       <Component {...pageProps} />

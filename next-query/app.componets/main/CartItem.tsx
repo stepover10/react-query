@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useMutation, useQueryClient, QueryCache } from "react-query";
+import { useQueryClient } from "react-query";
 
 const queryKey = 'action/cart';
 

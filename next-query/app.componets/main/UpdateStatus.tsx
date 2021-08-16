@@ -1,5 +1,5 @@
 import { useQueryClient } from "react-query";
-import useFavorite from "../app.hook/useFavorite";
+import useFavorite from "../../app.hook/useFavorite";
 
 const UpdateStatus = () => {
   const favorite = useFavorite();
